@@ -1,3 +1,7 @@
-async function index() {
-  render("user/index");
+async function index(req, res) {
+  res.render("user/index");
+}
+
+module.exports = {
+  index
 }
