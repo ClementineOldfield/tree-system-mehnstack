@@ -1,1 +1,19 @@
 <h1>Edit User</h1>
+
+<form method="post" action="/user/{{user._id}}/edit?_method=PATCH">
+  <div>
+    <label>Name</label>
+  </div>
+  <div>
+    <input type="text" name="name" />
+  </div>
+  <div>
+    <label for "dob">Date of Birth</label>
+  </div>
+  <div>
+    <input type="date" name="dob" />
+  </div>
+  <div>
+    <input type="submit" value="Submit Form" />
+  </div>
+</form>
