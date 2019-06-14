@@ -6,9 +6,9 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  age: {
-    type: Number,
-    default: ""
+  dob: {
+    type: Date,
+    required: true
   },
   gender: {
     type: String,

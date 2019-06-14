@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "forever -c \"nodemon --exitcrash -L\" app.js"
+    "dev": "forever -c \"nodemon --exitcrash -L\" app.js",
+    "mongod": "mongod --config /usr/local/etc/mongod.conf"
   },
   "repository": {
     "type": "git",
