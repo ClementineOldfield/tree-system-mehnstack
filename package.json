@@ -1,0 +1,24 @@
+{
+  "name": "tree-system-mehnstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClementineOldfield/tree-system-mehnstack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClementineOldfield/tree-system-mehnstack/issues"
+  },
+  "homepage": "https://github.com/ClementineOldfield/tree-system-mehnstack#readme",
+  "devDependencies": {
+    "express-handlebars": "^3.1.0",
+    "forever": "^1.0.0",
+    "nodemon": "^1.19.1"
+  }
+}
