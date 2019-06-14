@@ -3,6 +3,8 @@ const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
+const passport = require("passport");
+
 const app = express();
 const port = 3000;
 
