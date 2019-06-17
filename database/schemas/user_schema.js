@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const HabitSchema = require("./habit_schema");
+
 const UserSchema = new Schema({
   name: {
     type: String,
@@ -14,7 +16,8 @@ const UserSchema = new Schema({
     type: String,
     enum: ['male', 'female', 'non binary'],
     default: 'non binary'
-  }
+  },
+  habits: [ HabitSchema ]
 });
 
 module.exports = UserSchema;
