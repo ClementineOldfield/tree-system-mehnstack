@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const HabitSchema = require("./habit_schema");
+const GoalTreeSchema = require("./goal_tree_schema");
 
 const UserSchema = new Schema({
   name: {
@@ -17,7 +18,8 @@ const UserSchema = new Schema({
     enum: ['male', 'female', 'non binary'],
     default: 'non binary'
   },
-  habits: [ HabitSchema ]
+  habits: [ HabitSchema ],
+  goalTrees: [ GoalTreeSchema ]
 });
 
 module.exports = UserSchema;

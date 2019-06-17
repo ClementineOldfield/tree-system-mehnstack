@@ -1,10 +1,10 @@
-<h1>Add/Edit Habits</h1>
+<h1>Add/Edit Goal Trees</h1>
 
-{{#each user.habits}}
+{{#each user.goalTrees}}
   <p>{{this.name}}</p>
 {{/each}}
 
-<form method="POST" action="/user/{{user._id}}/habits/new">
+<form method="POST" action="/user/{{user._id}}/trees/new">
   <div>
     <input type="text" name="name"></textarea>
   </div>
@@ -16,5 +16,5 @@
       <option value="social">Social</option>
     </select>
   </div>
-  <input type="submit" value="Add new habit" />
+  <input type="submit" value="Add new goal tree" />
 </form>
