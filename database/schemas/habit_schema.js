@@ -8,7 +8,7 @@ const HabitSchema = new Schema({
   },
   category: {
     type: String,
-    enum: ['Health & Fitness', 'Education', 'Self-Care', 'Social'],
+    enum: ['hfitness', 'education', 'self-care', 'social'],
     required: true
   }
 });

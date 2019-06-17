@@ -1,1 +1,20 @@
-<h1>Add a new habit for {{user.name}}</h1>
+<h1>Add/Edit Habits</h1>
+
+{{#each user.habits}}
+  <p>{{this.name}}</p>
+{{/each}}
+
+<form method="POST" action="/user/{{user._id}}/habits/new">
+  <div>
+    <input type="text" name="name"></textarea>
+  </div>
+  <div>
+    <select name="category">
+      <option value="hfitness">Health & Fitness</option>
+      <option value="education">Education</option>
+      <option value="self-care">Self</option>
+      <option value="social">Social</option>
+    </select>
+  </div>
+  <input type="submit" value="Add new habit" />
+</form>

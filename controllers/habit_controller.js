@@ -12,7 +12,7 @@ async function create(req, res) {
   res.redirect(`/user/${id}`);
 }
 
-async function make(req, res) {
+async function edit(req, res) {
   let { id } = req.params;
 
   let user = await UserModel.findById(id);
@@ -22,5 +22,5 @@ async function make(req, res) {
 
 module.exports = {
   create,
-  make
+  edit
 }

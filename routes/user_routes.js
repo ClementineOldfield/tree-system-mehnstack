@@ -19,7 +19,7 @@ router.put("/:id/edit", UserController.update);
 
 router.patch("/:id/edit", UserController.update);
 
-router.get("/:id/habits", HabitController.make);
+router.get("/:id/habits", HabitController.edit);
 
 router.post("/:id/habits/new", HabitController.create);
 
