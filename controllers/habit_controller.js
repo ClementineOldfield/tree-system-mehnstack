@@ -2,16 +2,25 @@ const UserModel = require("./../database/models/user_model");
 
 async function create(req, res) {
   let { id } = req.params;
-  let { category } = req.body;
+  let { name, category } = req.body;
 
-  let book = await UserModel.findById(id);
-  book.comments.push({ category });
+  let user = await UserModel.findById(id);
+  user.habits.push({ name, category });
 
-  await book.save();
+  await user.save();
 
   res.redirect(`/user/${id}`);
 }
 
+async function make(req, res) {
+  let { id } = req.params;
+
+  let user = await UserModel.findById(id);
+
+  res.render("habits/edit", {user});
+}
+
 module.exports = {
-  create
+  create,
+  make
 }

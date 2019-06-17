@@ -1,6 +1,14 @@
 <h1>Show User</h1>
 
 <p>Name: {{user.name}} </p>
-<p>Age: {{user.dob}} </p>
+<p>Age: {{age}} </p>
 
 <h2>Habits</h2>
+
+<ul>
+  {{#each user.habits}}
+    <li>{{this.name}}</li>
+  {{/each}}
+</ul>
+
+<a href="/user/{{user._id}}/habits">Add a new habit</a>

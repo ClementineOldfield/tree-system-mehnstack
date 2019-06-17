@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const UserController = require("./../controllers/user_controller");
+const HabitController = require("./../controllers/habit_controller");
 
 router.get("/", UserController.index);
 
@@ -17,5 +18,9 @@ router.get("/:id/edit", UserController.edit);
 router.put("/:id/edit", UserController.update);
 
 router.patch("/:id/edit", UserController.update);
+
+router.get("/:id/habits", HabitController.make);
+
+router.post("/:id/habits/new", HabitController.create);
 
 module.exports = router;
