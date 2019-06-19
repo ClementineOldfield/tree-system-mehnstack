@@ -7,15 +7,21 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
-  let { email, password, name, dob } = req.body;
-  const user = await UserModel.create({ email, password, name, dob});
+  try {
+    let { email, password, name, dob } = req.body;
+    const user = await UserModel.create({ email, password, name, dob });
 
-  req.login(user, (error) => {
-    if(error) {
+    req.login(user, (error) => {
+      if (error) {
+        console.log(`error = ${error}`)
         return next(error);
-    }
-    return res.redirect("/dashboard");
-  });
+      }
+      console.log(`created ${user}`);
+      return res.redirect("/dashboard");
+    });
+  } catch(err) {
+    console.log(err);
+  }
 }
 
 async function make(req, res) {

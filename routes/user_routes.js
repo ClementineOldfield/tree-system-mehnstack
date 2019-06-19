@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+
+const { celebrate, Joi } = require("celebrate");
+
 const UserController = require("./../controllers/user_controller");
 const HabitController = require("./../controllers/habit_controller");
 const GoalTreeController = require("./../controllers/goal_tree_controller");
@@ -7,7 +10,15 @@ const { authRedirect, authorise } = require("./../middleware/authorisation_middl
 
 router.get("/", UserController.index);
 
-router.post("/", UserController.create);
+router.post("/", celebrate({
+  body: {
+    email: Joi.string().required(),
+    password: Joi.string().required(),
+    name: Joi.string().required(),
+    dob: Joi.date().required(),
+    gender: Joi.string()
+  }
+}), UserController.create);
 
 router.get("/new", authRedirect, UserController.make);
 
