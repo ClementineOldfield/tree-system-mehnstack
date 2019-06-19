@@ -3,7 +3,6 @@ const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
-const passport = require("passport");
 
 const app = express();
 const port = 3000;
@@ -20,6 +19,10 @@ app.use(methodOverride('_method', { methods: ['POST', 'GET']}));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+const passport = require("./config/passport");
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.static('public'));
 

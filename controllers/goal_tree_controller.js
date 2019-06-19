@@ -20,7 +20,12 @@ async function edit(req, res) {
   res.render("goal_trees/edit", {user});
 }
 
+async function show(req, res) {
+
+}
+
 module.exports = {
   create,
-  edit
+  edit,
+  show
 }

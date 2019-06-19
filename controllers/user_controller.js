@@ -7,10 +7,10 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
-  let { name, dob } = req.body;
-  let user = await UserModel.create({ name, dob })
+  let { email, password, name, dob } = req.body;
+  let user = await UserModel.create({ email, password, name, dob })
     .then( () => {
-      console.log("Created user")
+      console.log(`Created ${user}`);
     })
     .catch(err => res.status(500).send(err));
   res.redirect("/user");
