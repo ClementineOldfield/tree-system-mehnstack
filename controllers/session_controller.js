@@ -11,6 +11,5 @@ function logout(req, res) {
 
 module.exports = {
   login, 
-  // createSession,
   logout
 }

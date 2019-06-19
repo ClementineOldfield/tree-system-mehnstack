@@ -1,12 +1,11 @@
 async function index(req, res) {
-  res.render("page/index");
+  res.render("pages/index");
 }
 
 function dashboard(req, res) {
-  // const email = req.user.email;
+  const { name, _id } = req.user;
   console.log("loaded dashboard");
-  // res.render("pages/dashboard", { email });
-  res.render("page/dashboard");
+  res.render("pages/dashboard", { name, _id });
 }
 
 module.exports = {
