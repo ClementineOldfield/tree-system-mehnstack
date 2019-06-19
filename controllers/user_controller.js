@@ -8,12 +8,14 @@ async function index(req, res) {
 
 async function create(req, res) {
   let { email, password, name, dob } = req.body;
-  let user = await UserModel.create({ email, password, name, dob })
-    .then( () => {
-      console.log(`Created ${user}`);
-    })
-    .catch(err => res.status(500).send(err));
-  res.redirect("/user");
+  const user = await UserModel.create({ email, password, name, dob});
+
+  req.login(user, (error) => {
+    if(error) {
+        return next(error);
+    }
+    return res.redirect("/dashboard");
+  });
 }
 
 async function make(req, res) {

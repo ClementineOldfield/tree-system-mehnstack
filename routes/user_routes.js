@@ -3,12 +3,13 @@ const router = express.Router();
 const UserController = require("./../controllers/user_controller");
 const HabitController = require("./../controllers/habit_controller");
 const GoalTreeController = require("./../controllers/goal_tree_controller");
+const { authRedirect, authorise } = require("./../middleware/authorisation_middleware");
 
 router.get("/", UserController.index);
 
 router.post("/", UserController.create);
 
-router.get("/new", UserController.make);
+router.get("/new", authRedirect, UserController.make);
 
 router.get("/:id", UserController.show);
 
