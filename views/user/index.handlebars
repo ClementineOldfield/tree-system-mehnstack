@@ -3,10 +3,12 @@
 <a href="/user/new">Create New User</a>
 
 {{#each users}}
-  <div>
-    <p>Name: {{ this.name }}</p>
+  <div class="user">
+    <div>
+      <p>Name: {{ this.name }}</p>
+    </div>
+    <a href="/user/{{this._id}}">View User</a>
+    <a href="/user/{{this._id}}/edit">Edit User</a>
+    <a href="/user/{{this._id}}?_method=DELETE">Delete User</a>
   </div>
-  <a href="/user/{{this._id}}">View User</a>
-  <a href="/user/{{this._id}}/edit">Edit User</a>
-  <a href="/user/{{this._id}}?_method=DELETE">Delete User</a>
 {{/each}}

@@ -1,4 +1,20 @@
-<h1>Show User</h1>
+<h1>{{user.name}}</h1>
+<p>Age: {{age}} </p>
 
-<p>Name: {{user.name}} </p>
-<p>Age: {{}} </p>
+<h2>Daily Habits</h2>
+
+<ul>
+  {{#each user.habits}}
+    <li>{{this.name}}</li>
+  {{/each}}
+</ul>
+<a href="/user/{{user._id}}/habits">Add/Edit Habits</a>
+
+<h2>Goal Trees</h2>
+
+<ul>
+  {{#each user.goalTrees}}
+    <li>{{this.name}}</li>
+  {{/each}}
+</ul>
+<a href="/user/{{user._id}}/trees">Add/Edit Goal Trees</a>

@@ -1,0 +1,20 @@
+<h1>Add/Edit Goal Trees</h1>
+
+{{#each user.goalTrees}}
+  <p>{{this.name}}</p>
+{{/each}}
+
+<form method="POST" action="/user/{{user._id}}/trees/new">
+  <div>
+    <input type="text" name="name"></textarea>
+  </div>
+  <div>
+    <select name="category">
+      <option value="hfitness">Health & Fitness</option>
+      <option value="education">Education</option>
+      <option value="self-care">Self Care</option>
+      <option value="social">Social</option>
+    </select>
+  </div>
+  <input type="submit" value="Add new goal tree" />
+</form>

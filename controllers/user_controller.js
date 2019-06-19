@@ -1,4 +1,5 @@
 const UserModel = require("./../database/models/user_model");
+const moment = require("moment");
 
 async function index(req, res) {
   let users = await UserModel.find();
@@ -6,11 +7,21 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
-  let { name, dob } = req.body;
-  let user = await UserModel.create({ name, dob })
-    .then( () => console.log("Created user"))
-    .catch(err => res.status(500).send(err));
-  res.redirect("/user");
+  try {
+    let { email, password, name, dob } = req.body;
+    const user = await UserModel.create({ email, password, name, dob });
+
+    req.login(user, (error) => {
+      if (error) {
+        console.log(`error = ${error}`)
+        return next(error);
+      }
+      console.log(`created ${user}`);
+      return res.redirect("/dashboard");
+    });
+  } catch(err) {
+    console.log(err);
+  }
 }
 
 async function make(req, res) {
@@ -20,7 +31,8 @@ async function make(req, res) {
 async function show(req, res) {
   let { id } = req.params;
   let user = await UserModel.findById(id);
-  res.render(`user/show`, {user});
+  let age = moment().diff(user.dob, "years");
+  res.render(`user/show`, {user, age});
 }
 
 async function edit(req, res) {

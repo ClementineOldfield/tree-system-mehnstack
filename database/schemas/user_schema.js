@@ -1,7 +1,20 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const { Schema } = require("mongoose");
+
+const HabitSchema = require("./habit_schema");
+const GoalTreeSchema = require("./goal_tree_schema");
 
 const UserSchema = new Schema({
+  email: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  password: {
+    type: String,
+    required: true,
+    trim: true,
+    bcrypt: true
+  },
   name: {
     type: String,
     required: true
@@ -14,7 +27,11 @@ const UserSchema = new Schema({
     type: String,
     enum: ['male', 'female', 'non binary'],
     default: 'non binary'
-  }
+  },
+  habits: [ HabitSchema ],
+  goalTrees: [ GoalTreeSchema ]
 });
+
+UserSchema.plugin(require('mongoose-bcrypt'));
 
 module.exports = UserSchema;
