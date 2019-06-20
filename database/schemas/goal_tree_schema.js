@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const GoalSchema = require("./goal_schema");
+let categories = ['hfitness', 'education', 'self-care', 'social', 'fun'];
 
 const GoalTreeSchema = new Schema({
   name: {
@@ -9,7 +10,7 @@ const GoalTreeSchema = new Schema({
   },
   category: {
     type: String,
-    enum: ['hfitness', 'education', 'self-care', 'social'],
+    enum: categories,
     required: true
   },
   goals: [ GoalSchema ]
