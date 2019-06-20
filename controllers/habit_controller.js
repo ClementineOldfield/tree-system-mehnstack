@@ -1,4 +1,5 @@
 const UserModel = require("./../database/models/user_model");
+const moment = require("moment");
 
 async function create(req, res) {
   let { id } = req.params;
@@ -20,7 +21,18 @@ async function edit(req, res) {
   res.render("habits/edit", {user});
 }
 
+function daily(req, res) {
+  let date = req.query.date ? req.query.date : moment().toISOString();
+  let dateFormat = moment(date).format("MMMM Do YYYY");
+  let yesterday = moment(date).subtract(1, "day").toISOString();
+  let tomorrow = moment(date).add(1, "day").toISOString();
+  let isNotToday = moment().isSame(moment(date), "day") ? false : true;
+
+  res.render("habits/daily", {date, dateFormat, yesterday, tomorrow, isNotToday});
+}
+
 module.exports = {
   create,
-  edit
+  edit,
+  daily
 }

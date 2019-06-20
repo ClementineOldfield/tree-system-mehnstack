@@ -11,7 +11,15 @@ const methodOverride = require("method-override");
 
 const app = express();
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ 
+  extname: "handlebars",
+  defaultLayout: "main",
+  layoutsDir: __dirname + '/views/layouts',
+  partialsDir: [
+    //  path to your partials
+    __dirname + '/views/partials',
+  ]
+}));
 app.set("view engine", "handlebars");
 
 app.use(expressSession({

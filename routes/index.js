@@ -9,9 +9,11 @@ const { authRedirect } = require("./../middleware/authorisation_middleware");
 
 const pageRoutes = require("./page_routes");
 const userRoutes = require("./user_routes");
+const habitRoutes = require("./habit_routes");
 
 router.use("/", pageRoutes);
 router.use("/user", userRoutes);
+router.use("/habits", habitRoutes);
 
 router.get("/login", authRedirect, SessionController.login);
 
